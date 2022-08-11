@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Products;
+use App\Models\User;
+use App\Models\orders;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/getOrders', function(){
+    $user = User::find(1);
+    $user->products;
+});
+
+
+Route::get('/getOrders', function(){
+
+    $order = orders::with('orderDetails.products')->get();
+    
+    
 });
